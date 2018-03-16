@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<title>工况监控界面</title>
+		<meta name="viewport" content="initial-scale=1, maximum-scale=1">
+		<link rel="shortcut icon" href="/favicon.ico">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+		<link rel="stylesheet" href="//g.alicdn.com/msui/sm/0.6.2/css/sm.min.css">
+		<link rel="stylesheet" href="//g.alicdn.com/msui/sm/0.6.2/css/sm-extend.min.css">
+		<link rel="stylesheet" href="../css/c_common.css" />
+		
+	</head>
+
+	<body>
+		<!-- page集合的容器，里面放多个平行的.page，其他.page作为内联页面由路由控制展示 -->
+    <div class="page-group">
+        <!-- 单个page ,第一个.page默认被展示-->
+        <div class="page">
+            <!-- 标题栏 -->
+            <header class="bar bar-nav bar_liner_gradient">
+                <a class="icon icon-left pull-left topic_color"></a>
+                <a class="icon  pull-right" ><img src="../img/u1196.png" style="width: .9rem;" /></a>
+                <h1 class="title topic_color">工况监控</h1>
+                <span onclick="degHander()" style="display: inline-block;position: absolute;top: 3rem;right: 1rem;background-color:rgba(100,100,100,0.5) ;border-radius: 2rem;padding: 0.7rem 0.5rem;font-size:0.7rem ;color: white;">旋转</span>
+            </header>
+            <!-- 这里是页面内容区 -->
+            <div class="content">
+                <div class="content-block col-100">
+                	<div class="content-block-inner" style="background-color: rgba(0,0,0,0);">
+                	<img src="" id="iimg" />
+                	</div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+		<script type='text/javascript' src='//g.alicdn.com/sj/lib/zepto/zepto.min.js' charset='utf-8'></script>
+		<script type='text/javascript' src='//g.alicdn.com/msui/sm/0.6.2/js/sm.min.js' charset='utf-8'></script>
+		<script type='text/javascript' src='//g.alicdn.com/msui/sm/0.6.2/js/sm-extend.min.js' charset='utf-8'></script>
+		<script>
+			function degHander(){
+			  	var height = $('#iimg')[0].clientHeight;
+			  	var width = $('#iimg')[0].clientWidth;
+			  	if(width>height){
+			  		if($('#iimg').hasClass('deg-90')){
+			  			$('#iimg').removeClass('deg-90')
+			  			$('#iimg').css('left',0)
+			  			$('#iimg').css('top',0)
+			  		}else{
+			  			$('#iimg').addClass('deg-90')
+			  			$('#iimg').css('left',height/2 -width/2 + ($('.content-block')[0].clientWidth/2 - height/2))
+			  			$('#iimg').css('top',width/2 - height/2)
+			  		}
+			  	}
+			  }
+			  $(function(){
+			  	$('#iimg').on('change',degHander)
+			  	$('#iimg').attr('src','../img/u1233.png')
+			  })
+			  
+		</script>
+	</body>
+
+</html>

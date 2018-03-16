@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<title>待办/已完成切换</title>
+		<meta name="viewport" content="initial-scale=1, maximum-scale=1">
+		<link rel="shortcut icon" href="/favicon.ico">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+		<link rel="stylesheet" href="//g.alicdn.com/msui/sm/0.6.2/css/sm.min.css">
+		<link rel="stylesheet" href="//g.alicdn.com/msui/sm/0.6.2/css/sm-extend.min.css">
+		<link rel="stylesheet" href="css/c_common.css" />
+		<style type="text/css">
+			.span_active {
+				background-color: rgba(242, 242, 242, 0.5);
+			}
+			
+			.top_btn span {
+				padding: 5px 10px;
+				color: white;
+				font-size: 0.7rem;
+				border: solid white 1px;
+			}
+			
+			.buttons-tab .button.active {
+				color: #51C8D2;
+				border-color: #51C8D2;
+				z-index: 100;
+			}
+			
+			.top_btn {
+				margin-top: 10px;
+				text-align: center;
+			}
+			
+			.c_container {
+				display: flex;
+				align-items: center;
+				padding: 0.2rem 0;
+			}
+			
+			.over_time_span {
+				padding: 0.1rem 0.3rem;
+				background: #F6716D;
+				color: white;
+				font-weight: bold;
+				border-radius: 0.1rem;
+			}
+			
+			.level_one {
+				padding: 0.1rem 0.45rem;
+				background: #FF6666;
+				color: white;
+				font-weight: bold;
+				border-radius: 0.1rem;
+			}
+			
+			.level_two {
+				padding: 0.1rem 0.45rem;
+				background: #FF9900;
+				color: white;
+				font-weight: bold;
+				border-radius: 0.1rem;
+			}
+			
+			.level_three {
+				padding: 0.1rem 0.45rem;
+				background: #66CCCC;
+				color: white;
+				font-weight: bold;
+				border-radius: 0.1rem;
+			}
+			
+			.advent_time_span {
+				padding: 0.1rem 0.3rem;
+				background: #FF9A00;
+				color: white;
+				font-weight: bold;
+				border-radius: 0.1rem;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="page-group">
+			<div class="page page-current" id="workspace">
+				<header class="bar bar-nav bar_liner_gradient">
+					<div class="top_btn">
+						<span class="top_btn_span span_active" style="border-right: none;border-radius: 1rem 0 0 1rem;">任务</span><span class="top_btn_span" style="border-left: none;border-radius:0 1rem 1rem 0;">问题</span>
+					</div>
+				</header>
+				<div class="content" id="task">
+					<div class="buttons-tab">
+						<a href="#tab1" class="tab-link active button">待办</a>
+						<a href="#tab2" class="tab-link button">已完成</a>
+					</div>
+					<div style="height: 1.2rem;padding: 0 1rem;padding-top: 0.2rem;"><span class="center_msg" style="color: #5f646e;font-size: 0.6rem;">您有<span style="color: #FF9900;">1</span>条已完成的任务</span>
+					</div>
+					<div class="content-block">
+						<div class="tabs">
+							<div id="tab1" class="tab active">
+								<div class="card" data-id="item1">
+									<div class="card-content">
+										<div class="card-content-inner">
+											<div>
+												<span style="width: 1.2rem;height: 1.2rem;background-color:#6699FF;display: inline-block;padding: 0.1rem;border-radius: 0.1rem;"><img src="img/clock.png" style="width: 1rem;height: 1rem;" /></span>
+												<h3 style="display: inline-block;padding: 0;margin: 0;position: relative;padding-left: 0.5rem;top:-0.2rem;">临时任务标题</h3>
+												<div style=" float:right;text-align: right;">
+													<!--如果是临期 将class 替换为 advent_time_span-->
+													<span class="over_time_span">超标</span>
+												</div>
+											</div>
+											<div class="c_container">
+												<img src="img/clock_icon.png" style="width: 0.8rem;height: 0.8rem;margin-left: 0.2rem;" />
+												<span class="c_gray" style="padding-left: 0.5rem;">2017-01-05 至 2017-01-21</span>
+											</div>
+											<div>
+												<span class="c_gray">-内容简述-同时需用图标形式显示任务类型、临超期状态。点击查看详情进入任务详情界面...</span>
+											</div>
+										</div>
+									</div>
+								</div>
+
+								<div class="card" data-id="item2">
+									<div class="card-content">
+										<div class="card-content-inner">
+											<div>
+												<span style="width: 1.2rem;height: 1.2rem;background-color:#00CC99;display: inline-block;padding: 0.1rem;border-radius: 0.1rem;"><img src="img/u668.png" style="width: 1rem;height: 1rem;" /></span>
+												<h3 style="display: inline-block;padding: 0;margin: 0;position: relative;padding-left: 0.5rem;top:-0.2rem;">临时任务标题</h3>
+												<div style=" float:right;text-align: right;">
+													<!--如果是临期 将class 替换为 advent_time_span-->
+													<span class="advent_time_span">临期</span>
+												</div>
+											</div>
+											<div class="c_container">
+												<img src="img/clock_icon.png" style="width: 0.8rem;height: 0.8rem;margin-left: 0.2rem;" />
+												<span class="c_gray" style="padding-left: 0.5rem;">2017-01-05 至 2017-01-21</span>
+											</div>
+											<div>
+												<span class="c_gray">-内容简述-同时需用图标形式显示任务类型、临超期状态。点击查看详情进入任务详情界面...</span>
+											</div>
+										</div>
+									</div>
+								</div>
+
+								<div class="card" data-id="item3">
+									<div class="card-content">
+										<div class="card-content-inner">这是一个用纯文本的简单卡片。但卡片可以包含自己的页头，页脚，列表视图，图像，和里面的任何元素。</div>
+									</div>
+								</div>
+							</div>
+							<div id="tab2" class="tab">
+								<div class="card">
+									<div class="card-content">
+										<div class="card-content-inner">这是一个用纯文本的简单卡片。但卡片可以包含自己的页头，页脚，列表视图，图像，和里面的任何元素。</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!--问题-->
+				<div class="content" id="problem" style="display: none;">
+					<div class="buttons-tab">
+						<a href="#tab3" class="tab-link active button">待办</a>
+						<a href="#tab4" class="tab-link button">已完成</a>
+					</div>
+					<div style="height: 1.2rem;padding: 0 1rem;padding-top: 0.2rem;"><span class="center_msg" style="color: #5f646e;font-size: 0.6rem;">当前共<span style="color: #FF9900;">2</span>条问题待您处理</span>
+					</div>
+
+					<div class="content-block" style="padding-left:0;padding-right: 0;margin-top:0 ;">
+						<div class="tabs">
+							<div id="tab3" class="tab active">
+								<div class="card" data-id="item6">
+									<div class="card-content">
+										<div class="card-content-inner">
+											<div>
+												<span style="width: 1.3rem;height: 1.3rem;background-color:#E2F5F5;display: inline-block;border-radius: 0.7rem;text-align: center;color: #66CCCC;"><span style="padding-top: 0.1rem;display: inline-block;">投</span></span>
+												<h3 style="display: inline-block;padding: 0;margin: 0;">中国嘉陵工业股份有限公司</h3>
+												<div style=" float:right;text-align: right;">
+													<!--如果是临期 将class 替换为 advent_time_span-->
+													<span class="level_one">I 级</span>
+												</div>
+											</div>
+											<div style="border-bottom:solid 1px #F0F0F0;margin: 0.3rem 0 0.1rem 0;"></div>
+											<div>
+												<div class="c_gray">预警时间：2016-10-25 10:00</div>
+												<div class="c_gray">问题类型：新监管对象</div>
+												<div class="c_gray">问题描述：附近多出一排口，大量排放有毒气体附近多出一排口，大量排放有毒气体</div>
+											</div>
+										</div>
+									</div>
+								</div>
+
+								<div class="card" data-id="item4">
+									<div class="card-content">
+										<div class="card-content-inner">
+											<div>
+												<span style="width: 1.3rem;height: 1.3rem;background-color:#E2F5F5;display: inline-block;border-radius: 0.7rem;text-align: center;color: #66CCCC;"><span style="padding-top: 0.1rem;display: inline-block;">投</span></span>
+												<h3 style="display: inline-block;padding: 0;margin: 0;">中国嘉陵工业股份有限公司</h3>
+												<div style=" float:right;text-align: right;">
+													<!--如果是临期 将class 替换为 advent_time_span-->
+													<span class="level_two">II 级</span>
+												</div>
+											</div>
+											<div style="border-bottom:solid 1px #F0F0F0;margin: 0.3rem 0 0.1rem 0;"></div>
+											<div>
+												<div class="c_gray">预警时间：2016-10-25 10:00</div>
+												<div class="c_gray">问题类型：新监管对象</div>
+												<div class="c_gray">问题描述：附近多出一排口，大量排放有毒气体附近多出一排口，大量排放有毒气体</div>
+											</div>
+										</div>
+									</div>
+								</div>
+
+								<div class="card" data-id="item5">
+									<div class="card-content">
+										<div class="card-content-inner">
+											<div>
+												<span style="width: 1.3rem;height: 1.3rem;background-color:#E2F5F5;display: inline-block;border-radius: 0.7rem;text-align: center;color: #66CCCC;"><span style="padding-top: 0.1rem;display: inline-block;">投</span></span>
+												<h3 style="display: inline-block;padding: 0;margin: 0;">中国嘉陵工业股份有限公司</h3>
+												<div style=" float:right;text-align: right;">
+													<!--如果是临期 将class 替换为 advent_time_span-->
+													<span class="level_three">III 级</span>
+												</div>
+											</div>
+											<div style="border-bottom:solid 1px #F0F0F0;margin: 0.3rem 0 0.1rem 0;"></div>
+											<div>
+												<div class="c_gray">预警时间：2016-10-25 10:00</div>
+												<div class="c_gray">问题类型：新监管对象</div>
+												<div class="c_gray">问题描述：附近多出一排口，大量排放有毒气体附近多出一排口，大量排放有毒气体</div>
+											</div>
+										</div>
+									</div>
+								</div>
+
+								<div class="card">
+									<div class="card-content">
+										<div class="card-content-inner">
+
+											...
+										</div>
+									</div>
+								</div>
+
+								<div class="card">
+									<div class="card-content">
+										<div class="card-content-inner">
+
+											...
+										</div>
+									</div>
+								</div>
+								<div class="card">
+									<div class="card-content">
+										<div class="card-content-inner">
+
+											...
+										</div>
+									</div>
+								</div>
+								<div class="card">
+									<div class="card-content">
+										<div class="card-content-inner">
+
+											...
+										</div>
+									</div>
+								</div>
+							</div>
+							<div id="tab4" class="tab">
+								<div class="card">
+									<div class="card-content">
+										<div class="card-content-inner">这是一个用纯文本的简单卡片。但卡片可以包含自己的页头，页脚，列表视图，图像，和里面的任何元素。</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+
+				</div>
+			</div>
+
+			<script type='text/javascript' src='//g.alicdn.com/sj/lib/zepto/zepto.min.js' charset='utf-8'></script>
+			<script type='text/javascript' src='//g.alicdn.com/msui/sm/0.6.2/js/sm.min.js' charset='utf-8'></script>
+			<script type='text/javascript' src='//g.alicdn.com/msui/sm/0.6.2/js/sm-extend.min.js' charset='utf-8'></script>
+			<script type="text/javascript" src="js/workspace.js"></script>
+	</body>
+
+</html>

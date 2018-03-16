@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html style="font-size: 40px;">
+
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<title>搜索</title>
+		<meta name="viewport" content="initial-scale=1, maximum-scale=1">
+		<link rel="shortcut icon" href="/favicon.ico">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+		<link rel="stylesheet" href="//g.alicdn.com/msui/sm/0.6.2/css/sm.min.css">
+		<link rel="stylesheet" href="//g.alicdn.com/msui/sm/0.6.2/css/sm-extend.min.css">
+		<style type="text/css">
+			.page {
+				background-color: #FFFFFF;
+				!important;
+			}
+			.card-header{
+				font-size: 0.6rem;
+			}
+			.card{
+				color: #666666;
+			}
+			.item-inner{
+				font-size: 0.7rem;
+			}
+		</style>
+	</head>
+
+	<body>
+		<!-- page集合的容器，里面放多个平行的.page，其他.page作为内联页面由路由控制展示 -->
+		<div class="page-group">
+			<!-- 单个page ,第一个.page默认被展示-->
+			<!--描述：搜索框-->
+			<div class="page">
+				<!-- 这里是页面内容区 -->
+				<div class="bar  bar-nav">
+					<div class="searchbar" style="background-color: #fff;">
+						<a class="searchbar-cancel"><span style="color: #51C8D2;">取消</span></a>
+						<div class="search-input">
+							<label class="icon icon-search" for="search"></label>
+							<input style="background-color:#f5f5f5;" type="search" id='search' placeholder='搜索' />
+						</div>
+					</div>
+				</div>
+				<div class="content" style="display: none;" id="result_content">
+					<div class="card">
+						<div class="card-header">任务</div>
+						<div class="card-content">
+							<div class="list-block">
+								<ul>
+									<li class="item-content item-link">
+										<div class="item-media"><img src="img/15198891813280.png" style="width: 1rem;height: 1rem;" /></div>
+										<div class="item-inner">
+											来文审核-关于的来文审核（标题）
+										</div>
+									</li>
+									<li class="item-content item-link">
+										<div class="item-media"><img src="img/15198901085897.png" style="width: 1rem;height: 1rem;" /></div>
+										<div class="item-inner">
+											通知公告审核-关于的来文审核（标题）
+										</div>
+									</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+					<div class="card">
+						<div class="card-header">问题</div>
+						<div class="card-content">
+							<div class="list-block">
+								<ul>
+									<li class="item-content item-link">
+										<div class="item-media"><img src="img/15198904744051.png" style="width: 1rem;height: 1rem;" /></div>
+										<div class="item-inner">
+											xxxxx
+										</div>
+									</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="content" style="display: none;" id="no_result_content">
+					<div class="content-padded grid-demo">
+						<div class="row">
+							<div class="col-100" ><img src="img/no_result.png" width="300px" height="300px" style="position: absolute;top: -30%;left: 0;bottom: 0;right: 0;margin: auto;"/></div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		</div>
+
+		<!-- popup, panel 等放在这里 -->
+		<div class="panel-overlay"></div>
+		<!-- 默认必须要执行$.init(),实际业务里一般不会在HTML文档里执行，通常是在业务页面代码的最后执行 -->
+		</div>
+		<script type='text/javascript' src='//g.alicdn.com/sj/lib/zepto/zepto.min.js' charset='utf-8'></script>
+		<script type='text/javascript' src='//g.alicdn.com/msui/sm/0.6.2/js/sm.min.js' charset='utf-8'></script>
+		<script type='text/javascript' src='//g.alicdn.com/msui/sm/0.6.2/js/sm-extend.min.js' charset='utf-8'></script>
+		<script type="application/javascript">
+			//显示没有搜索结果
+			function showNoResultContent() {
+				$('#no_result_content').show();
+			}
+			//隐藏没有搜索结构
+			function hideNoResultContent() {
+				$('#no_result_content').hide();
+			}
+
+			//显示搜索结果
+			function showResultContent() {
+				$('#result_content').show();
+			}
+			//隐藏搜索结果
+			function hideResultContent() {
+				$('#result_content').hide();
+			}
+			
+			showResultContent();
+		</script>
+	</body>
+
+</html>
